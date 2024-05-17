@@ -17,4 +17,12 @@ export class PortfolioInformationComponent {
   protected readonly faPieChart = faPieChart;
   protected readonly faChartLine = faChartLine;
   protected readonly faMoneyBill = faMoneyBill;
+
+
+  getColor(): string {
+    if(this.portfolio?.total_gain_deficit > 0){
+      return "lightgreen"
+    }
+    return "lightcoral"
+  }
 }

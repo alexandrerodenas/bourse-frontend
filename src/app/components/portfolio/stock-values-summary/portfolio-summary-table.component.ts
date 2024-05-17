@@ -24,14 +24,4 @@ export class PortfolioSummaryTable {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  getCaretIcon(change: string): string {
-    if (change === 'increased') {
-      return '<fa-icon style="color: lightgreen" [icon]="faCaretUp"></i>';
-    } else if (change === 'decreased') {
-      return '<fa-icon style="color: lightcoral" [icon]="faCaretDown"></i>';
-    } else {
-      return "";
-    }
-  }
-
 }

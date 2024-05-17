@@ -3,9 +3,8 @@
     [portfolios]="portfolios"
     (portfolioSelected)="onPortfolioSelected($event)">
   </app-portfolio-selector>
-  <app-portfolio-information *ngIf="selectedPortfolio" [portfolio]="selectedPortfolio">
+  <app-portfolio-information class="information" *ngIf="selectedPortfolio" [portfolio]="selectedPortfolio">
   </app-portfolio-information>
   <app-portfolio-summary-table *ngIf="selectedPortfolio"  [portfolio]="selectedPortfolio">
   </app-portfolio-summary-table>
-
 </div>

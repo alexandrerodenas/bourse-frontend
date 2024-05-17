@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Portfolio } from "../../../model/portfolio";
 import { DatePipe, NgForOf } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -15,12 +15,20 @@ import { FormsModule } from "@angular/forms";
   styleUrl: './portfolio-selector.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PortfolioSelectorComponent {
+export class PortfolioSelectorComponent implements OnInit {
   @Input() portfolios: ReadonlyArray<Portfolio> = [];
   @Output() portfolioSelected: EventEmitter<Portfolio> = new EventEmitter<Portfolio>();
   selectedPortfolio: Portfolio;
 
-  constructor() { }
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    if (this.portfolios.length > 0) {
+      this.selectedPortfolio = this.portfolios[this.portfolios.length - 1];
+      this.portfolioSelected.emit(this.selectedPortfolio);
+    }
+  }
 
   onPortfolioChange(): void {
     this.portfolioSelected.emit(this.selectedPortfolio);

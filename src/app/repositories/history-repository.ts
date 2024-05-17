@@ -5,6 +5,10 @@ import { mapJsonToPortfolio, Portfolio, updateStockChanges } from "../model/port
 import * as mock from "./portfolios.mock";
 import { mockedPortfolios } from "./portfolios.mock";
 import { mapJsonToStock, Stock } from "../model/stock";
+import { ChartData, mapToChartData } from "../model/chart-data";
+import { mockedInvestment } from "./investment.mock";
+import { mockedGainLoss } from "./gain-loss.mock";
+import { mockedStockValues } from "./stock-values.mock";
 
 const API_URL = 'http://localhost:8000/history';
 
@@ -25,14 +29,17 @@ export class HistoryRepository {
 
 
   fetchGainLossHistory(): Observable<any> {
-    return this.http.get(`${API_URL}/gain-loss`);
+    const chartData : ChartData[] = mockedGainLoss.map(mapToChartData);
+    return of(chartData);
   }
 
-  fetchInvestmentHistory(): Observable<any> {
-    return this.http.get(`${API_URL}/investment`);
+  fetchInvestmentHistory(): Observable<ChartData[]> {
+    const chartData : ChartData[] = mockedInvestment.map(mapToChartData);
+    return of(chartData);
   }
 
   fetchStockValuesHistory(): Observable<any> {
-    return this.http.get(`${API_URL}/stock-values?start_date=2024-05-06`);
+    const chartData : ChartData[] = mockedStockValues.map(mapToChartData);
+    return of(chartData);
   }
 }
