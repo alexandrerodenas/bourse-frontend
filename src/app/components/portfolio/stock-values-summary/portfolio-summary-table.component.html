@@ -1,0 +1,31 @@
+<div *ngIf="portfolio" class="table-container">
+  <table class="table table-striped" id="stock-values-table">
+    <thead class="table-light">
+    <tr>
+      <th>Nom</th>
+      <th>Nombre</th>
+      <th>Prix achat (€)</th>
+      <th>Prix clotûre (€)</th>
+      <th>Investissement total (€)</th>
+      <th>Valorisation (€)</th>
+      <th>Gain/Perte (€)</th>
+      <th>Gain/Perte (%)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let stock of portfolio.stocks;">
+      <td>{{ capitalizeString(stock.name) }}</td>
+      <td class="text-center">{{ stock.number }}</td>
+      <td class="text-center">{{ formatDigit(stock.unit_cost) }}</td>
+      <td class="text-center">{{ formatDigit(stock.current_price) }}
+        <fa-icon *ngIf="stock.change === 'increased'" [icon]="faCaretUp" style="color: lightgreen"></fa-icon>
+        <fa-icon *ngIf="stock.change === 'decreased'" [icon]="faCaretDown" style="color: lightcoral"></fa-icon>
+      </td>
+      <td class="text-center">{{ formatDigit(stock.stock_value_investment) }}</td>
+      <td class="text-center">{{ formatDigit(stock.stock_value_estimation) }}</td>
+      <td class="text-center">{{ formatDigit(stock.difference_value_euros) }}</td>
+      <td class="text-center">{{ stock.difference_value_percentage }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

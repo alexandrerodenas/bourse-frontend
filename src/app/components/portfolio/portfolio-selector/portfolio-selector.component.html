@@ -1,0 +1,6 @@
+<select class="form-select" [(ngModel)]="selectedPortfolio" (change)="onPortfolioChange()">
+  <option value="undefined" disabled selected>Selection du portefeuille</option>
+  <option *ngFor="let portfolio of portfolios" [ngValue]="portfolio">
+    {{ portfolio.portfolio_date | date:'EEEE d MMMM' }}
+  </option>
+</select>
