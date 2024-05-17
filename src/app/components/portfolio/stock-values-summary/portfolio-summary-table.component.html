@@ -1,5 +1,5 @@
 <div *ngIf="portfolio" class="table-container">
-  <table class="table table-striped" id="stock-values-table">
+  <table class="table table-striped table-hover" id="stock-values-table">
     <thead class="table-light">
     <tr>
       <th>Nom</th>
@@ -13,7 +13,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let stock of portfolio.stocks;">
+    <tr *ngFor="let stock of portfolio.stocks;" (click)="onRowClick(stock.name)">
       <td>{{ capitalizeString(stock.name) }}</td>
       <td class="text-center">{{ stock.number }}</td>
       <td class="text-center">{{ formatDigit(stock.unit_cost) }}</td>

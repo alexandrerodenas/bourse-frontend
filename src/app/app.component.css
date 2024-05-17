@@ -13,10 +13,10 @@
   box-sizing: border-box;
   padding: 10px;
 }
-.chart:nth-child(1),
+.chart:nth-child(3),
 .chart:nth-child(2) {
   flex: 1 1 50%; /* Grow and shrink with a base of 50% width */
 }
-.chart:nth-child(3) {
+.chart:nth-child(1) {
   flex: 1 1 100%; /* Grow and shrink with a base of 100% width */
 }

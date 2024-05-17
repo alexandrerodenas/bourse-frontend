@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { Portfolio } from "../../../model/portfolio";
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
@@ -15,6 +15,8 @@ export class PortfolioSummaryTable {
   @Input() portfolio: Portfolio;
   faCaretUp = faCaretUp;
   faCaretDown = faCaretDown;
+  @Output() stockSelected = new EventEmitter<string>();
+
 
   formatDigit(value: number): string {
     return value.toFixed(2);
@@ -24,4 +26,7 @@ export class PortfolioSummaryTable {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
+  onRowClick(stockName: string): void {
+    this.stockSelected.emit(stockName);
+  }
 }

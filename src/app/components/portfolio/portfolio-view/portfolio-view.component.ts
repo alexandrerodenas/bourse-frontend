@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { Portfolio } from "../../../model/portfolio";
 import { HistoryRepository } from "../../../repositories/history-repository";
 import { take } from "rxjs";
@@ -23,6 +23,8 @@ import { NgIf } from "@angular/common";
 export class PortfolioViewComponent {
   portfolios: ReadonlyArray<Portfolio>;
   selectedPortfolio: Portfolio;
+  @Output() stockSelected = new EventEmitter<string>();
+
 
   constructor(readonly historyRepository: HistoryRepository) {
     historyRepository
@@ -33,5 +35,9 @@ export class PortfolioViewComponent {
 
   onPortfolioSelected(selectedPortfolio: Portfolio): void {
     this.selectedPortfolio = selectedPortfolio;
+  }
+
+  onStockSelected(stockName: string): void {
+    this.stockSelected.emit(stockName);
   }
 }

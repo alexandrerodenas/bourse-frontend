@@ -15,4 +15,9 @@ import { StockValuesChartComponent } from "./components/global-charts/stock-valu
 })
 export class AppComponent {
   title = 'bourse-frontend';
+  selectedStock: string;
+
+  onStockSelected(stockName: string) {
+    this.selectedStock = stockName;
+  }
 }
