@@ -29,4 +29,8 @@ export class PortfolioSummaryTable {
   onRowClick(stockName: string): void {
     this.stockSelected.emit(stockName);
   }
+
+  getValueColor(value: number){
+    return value > 0 ? '' : 'lightcoral'
+  }
 }
