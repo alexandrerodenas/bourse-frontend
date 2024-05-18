@@ -1,0 +1,8 @@
+<div class="parent-container">
+  <app-portfolio-view (stockSelected)="onStockSelected($event)"></app-portfolio-view>
+  <div class="chart-section">
+    <app-stock-values-chart [selectedStock]="selectedStock" class="chart"></app-stock-values-chart>
+    <app-investment-chart class="chart"></app-investment-chart>
+    <app-gain-loss-chart class="chart"></app-gain-loss-chart>
+  </div>
+</div>

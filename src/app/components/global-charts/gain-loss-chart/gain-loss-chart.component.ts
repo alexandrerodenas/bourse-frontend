@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HistoryRepository } from "../../../repositories/history-repository";
+import { StockRepository } from "../../../repositories/stock-repository.service";
 import { take } from "rxjs";
 import Highcharts from 'highcharts/highcharts.src';
 import { ChartData } from "../../../model/chart-data";
@@ -20,8 +20,8 @@ export class GainLossChartComponent {
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options;
 
-  constructor(historyRepository: HistoryRepository) {
-    historyRepository
+  constructor(stockRepository: StockRepository) {
+    stockRepository
       .fetchGainLossHistory()
       .pipe(take(1))
       .subscribe(chartData => {

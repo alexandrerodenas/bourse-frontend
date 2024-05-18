@@ -6,19 +6,15 @@ import { InvestmentChartComponent } from "./components/global-charts/investment-
 import { GainLossChartComponent } from "./components/global-charts/gain-loss-chart/gain-loss-chart.component";
 import { StockValuesChartComponent } from "./components/global-charts/stock-values-chart/stock-values-chart.component";
 import { NavBarComponent } from "./components/navbar/nav-bar/nav-bar.component";
+import { DividendCalendarComponent } from "./components/dividend/dividend-calendar/dividend-calendar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PortfolioSummaryTable, PortfolioViewComponent, InvestmentChartComponent, GainLossChartComponent, StockValuesChartComponent, NavBarComponent],
+  imports: [RouterOutlet, PortfolioSummaryTable, PortfolioViewComponent, InvestmentChartComponent, GainLossChartComponent, StockValuesChartComponent, NavBarComponent, DividendCalendarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  selectedStock: string;
   public readonly appTitle: string = "Mon gestionnaire PEA";
-
-  onStockSelected(stockName: string) {
-    this.selectedStock = stockName;
-  }
 }

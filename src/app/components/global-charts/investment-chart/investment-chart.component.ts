@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { HistoryRepository } from "../../../repositories/history-repository";
+import { StockRepository } from "../../../repositories/stock-repository.service";
 import Highcharts from 'highcharts/es-modules/masters/highcharts.src';
 import { take } from "rxjs";
 import { NgIf } from "@angular/common";
@@ -21,8 +21,8 @@ export class InvestmentChartComponent {
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options;
 
-  constructor(historyRepository: HistoryRepository) {
-    historyRepository
+  constructor(stockRepository: StockRepository) {
+    stockRepository
       .fetchInvestmentHistory()
       .pipe(take(1))
       .subscribe(chartData => {

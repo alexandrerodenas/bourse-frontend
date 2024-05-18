@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { HistoryRepository } from "../../../repositories/history-repository";
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { StockRepository } from "../../../repositories/stock-repository.service";
 import { take } from "rxjs";
 import { ChartData } from "../../../model/chart-data";
 import Highcharts from 'highcharts/highcharts.src';
 import { HighchartsChartModule } from "highcharts-angular";
 import { NgIf } from "@angular/common";
-import { SeriesOptionsType } from "highcharts";
 
 @Component({
   selector: 'app-stock-values-chart',
@@ -25,9 +24,9 @@ export class StockValuesChartComponent implements OnChanges {
   updateFlag = false;
 
 
-  constructor(historyRepository: HistoryRepository) {
+  constructor(stockRepository: StockRepository) {
 
-    historyRepository
+    stockRepository
       .fetchStockValuesHistory()
       .pipe(take(1))
       .subscribe(chartData => {

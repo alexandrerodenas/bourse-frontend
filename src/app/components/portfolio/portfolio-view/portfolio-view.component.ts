@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { Portfolio } from "../../../model/portfolio";
-import { HistoryRepository } from "../../../repositories/history-repository";
+import { StockRepository } from "../../../repositories/stock-repository.service";
 import { take } from "rxjs";
 import { PortfolioSelectorComponent } from "../portfolio-selector/portfolio-selector.component";
 import { PortfolioSummaryTable } from "../stock-values-summary/portfolio-summary-table.component";
@@ -26,8 +26,8 @@ export class PortfolioViewComponent {
   @Output() stockSelected = new EventEmitter<string>();
 
 
-  constructor(readonly historyRepository: HistoryRepository) {
-    historyRepository
+  constructor(stockRepository: StockRepository) {
+    stockRepository
       .fetchPortfolios()
       .pipe(take(1))
       .subscribe(portfolios => this.portfolios = [...portfolios])

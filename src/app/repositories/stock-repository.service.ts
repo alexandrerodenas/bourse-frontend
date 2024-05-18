@@ -15,7 +15,7 @@ const API_URL = 'http://localhost:8000/history';
 @Injectable({
   providedIn: 'root'
 })
-export class HistoryRepository {
+export class StockRepository {
 
   constructor(private http: HttpClient) {
   }
@@ -29,21 +29,21 @@ export class HistoryRepository {
 
 
   fetchGainLossHistory(): Observable<ChartData[]> {
-    const chartData : ChartData[] = gainLossMock.map(mapToChartData);
+    const chartData: ChartData[] = gainLossMock.map(mapToChartData);
     return of(chartData);
   }
 
   fetchInvestmentHistory(): Observable<ChartData[]> {
-    const chartData : ChartData[] = investmentMock.map(mapToChartData);
+    const chartData: ChartData[] = investmentMock.map(mapToChartData);
     return of(chartData);
   }
 
   fetchStockValuesHistory(): Observable<ChartData[]> {
-    const chartData : ChartData[] = stockValuesMock.map(mapToChartData);
+    const chartData: ChartData[] = stockValuesMock.map(mapToChartData);
     return of(chartData);
   }
 
   fetchDividends(): Observable<Dividend[]> {
-    return of(dividendMock.map(mapJsonToDividend))
+    return of(dividendMock.map(mapJsonToDividend).sort((a, b) => a.date.getTime() - b.date.getTime()))
   }
 }

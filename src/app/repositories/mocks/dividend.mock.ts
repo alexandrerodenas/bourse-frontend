@@ -1,37 +1,27 @@
-export const dividendMock = [
+export const dividendMock =[
   {
-    "dividend": [
-      "Mon, 13 May 2024 00:00:00 GMT",
-      1.58
-    ],
+    "amount": 3.76,
+    "date": "Mon, 13 May 2024 00:00:00 GMT",
     "name": "sanofi"
   },
   {
-    "dividend": [
-      "Mon, 22 Apr 2024 00:00:00 GMT",
-      null
-    ],
+    "amount": 1.55,
+    "date": "Mon, 22 Apr 2024 00:00:00 GMT",
     "name": "stellantis"
   },
   {
-    "dividend": [
-      "Wed, 05 Jun 2024 00:00:00 GMT",
-      null
-    ],
+    "amount": null,
+    "date": "Wed, 05 Jun 2024 00:00:00 GMT",
     "name": "accor"
   },
   {
-    "dividend": [
-      "Tue, 04 Jun 2024 00:00:00 GMT",
-      null
-    ],
+    "amount": null,
+    "date": "Tue, 04 Jun 2024 00:00:00 GMT",
     "name": "orange"
   },
   {
-    "dividend": [
-      "Tue, 28 May 2024 00:00:00 GMT",
-      null
-    ],
+    "amount": null,
+    "date": "Tue, 28 May 2024 00:00:00 GMT",
     "name": "teleperformance"
   }
 ]
