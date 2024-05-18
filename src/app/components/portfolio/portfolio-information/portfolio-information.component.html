@@ -1,12 +1,12 @@
 <div>
   <fa-icon [icon]="faMoneyBill"></fa-icon>
-  Montant investit: {{portfolio.total_investment_amount| number: '1.0-2'}}€
+  Montant investit: {{portfolio.total_investment_amount| number: '1.0-2'}} €
 </div>
 <div>
   <fa-icon [icon]="faPieChart"></fa-icon>
-  Montant sur le marché: {{portfolio.total_market_value| number: '1.0-2'}}€
+  Montant sur le marché: {{portfolio.total_market_value| number: '1.0-2'}} €
 </div>
 <div [style.color]="getColor()">
   <fa-icon [icon]="faChartLine"></fa-icon>
-  Total Gain/Perte: {{portfolio.total_gain_deficit| number: '1.0-2'}}
+  Total Gain/Perte: {{portfolio.total_gain_deficit| number: '1.0-2'}} €
 </div>

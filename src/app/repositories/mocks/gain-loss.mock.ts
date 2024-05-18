@@ -1,4 +1,4 @@
-export const mockedGainLoss = [
+export const gainLossMock = [
   {
     "data": [
       [

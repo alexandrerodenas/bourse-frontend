@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { mapJsonToPortfolio, Portfolio, updateStockChanges } from "../model/portfolio";
-import * as mock from "./portfolios.mock";
-import { mockedPortfolios } from "./portfolios.mock";
-import { mapJsonToStock, Stock } from "../model/stock";
+import { portfoliosMock } from "./mocks/portfolios.mock";
 import { ChartData, mapToChartData } from "../model/chart-data";
-import { mockedInvestment } from "./investment.mock";
-import { mockedGainLoss } from "./gain-loss.mock";
-import { mockedStockValues } from "./stock-values.mock";
+import { investmentMock } from "./mocks/investment.mock";
+import { gainLossMock } from "./mocks/gain-loss.mock";
+import { stockValuesMock } from "./mocks/stock-values.mock";
+import { Dividend, mapJsonToDividend } from "../model/dividend";
+import { dividendMock } from "./mocks/dividend.mock";
 
 const API_URL = 'http://localhost:8000/history';
 
@@ -21,25 +21,29 @@ export class HistoryRepository {
   }
 
   fetchPortfolios(): Observable<ReadonlyArray<Portfolio>> {
-    const portfolios: Portfolio[] = mockedPortfolios.map(mapJsonToPortfolio);
+    const portfolios: Portfolio[] = portfoliosMock.map(mapJsonToPortfolio);
     return of(
       updateStockChanges(portfolios)
     );
   }
 
 
-  fetchGainLossHistory(): Observable<any> {
-    const chartData : ChartData[] = mockedGainLoss.map(mapToChartData);
+  fetchGainLossHistory(): Observable<ChartData[]> {
+    const chartData : ChartData[] = gainLossMock.map(mapToChartData);
     return of(chartData);
   }
 
   fetchInvestmentHistory(): Observable<ChartData[]> {
-    const chartData : ChartData[] = mockedInvestment.map(mapToChartData);
+    const chartData : ChartData[] = investmentMock.map(mapToChartData);
     return of(chartData);
   }
 
-  fetchStockValuesHistory(): Observable<any> {
-    const chartData : ChartData[] = mockedStockValues.map(mapToChartData);
+  fetchStockValuesHistory(): Observable<ChartData[]> {
+    const chartData : ChartData[] = stockValuesMock.map(mapToChartData);
     return of(chartData);
+  }
+
+  fetchDividends(): Observable<Dividend[]> {
+    return of(dividendMock.map(mapJsonToDividend))
   }
 }

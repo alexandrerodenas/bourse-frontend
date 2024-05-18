@@ -1,4 +1,4 @@
-export const mockedPortfolios = [
+export const portfoliosMock = [
   {
     "id": "52030e82-4671-4266-88e5-5020bc50301e",
     "portfolio_date": "Mon, 06 May 2024 00:00:00 GMT",
