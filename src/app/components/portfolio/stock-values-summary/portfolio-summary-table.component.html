@@ -23,8 +23,8 @@
       </td>
       <td class="text-center">{{ formatDigit(stock.stock_value_investment) }}</td>
       <td class="text-center">{{ formatDigit(stock.stock_value_estimation) }}</td>
-      <td class="text-center" [style.color]="getValueColor(stock.difference_value_euros)">{{ formatDigit(stock.difference_value_euros) }}</td>
-      <td class="text-center" [style.color]="getValueColor(stock.difference_value_percentage)">{{ stock.difference_value_percentage }}</td>
+      <td class="text-center" appNumericRowColor [appRowColor]="stock.difference_value_euros">{{ formatDigit(stock.difference_value_euros) }}</td>
+      <td class="text-center" appNumericRowColor [appRowColor]="stock.difference_value_percentage">{{ stock.difference_value_percentage }}</td>
     </tr>
     </tbody>
   </table>

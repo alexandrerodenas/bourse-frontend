@@ -1,13 +1,15 @@
 export interface Dividend {
   name: string,
-  date: Date,
-  amount?: number
+  detachment_date: Date,
+  amount?: number,
+  income: number
 }
 
 export function mapJsonToDividend(json: any): Dividend {
   return {
     name: json.name,
-    date: new Date(json.date),
-    amount: json.amount
+    detachment_date: new Date(json.detachment_date),
+    amount: json.amount,
+    income: json.income
   }
 }

@@ -1,0 +1,16 @@
+<div class="table-container">
+  <table class="table table-striped table-hover" id="stock-values-table">
+    <thead class="table-light">
+    <tr>
+      <th class="text-center">Action</th>
+      <th class="text-center">Revenus</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let dividend of dividends" appNumericRowColor [appRowColor]="dividend.income">
+      <td class="text-center">{{ dividend.name | titlecase }}</td>
+      <td class="text-center">{{ dividend.income }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,4 @@
+<div class="container" *ngIf="dividendsObs | async; let dividends">
+  <app-dividend-calendar [dividends]="dividends"></app-dividend-calendar>
+  <app-dividend-summary [dividends]="dividends"></app-dividend-summary>
+</div>

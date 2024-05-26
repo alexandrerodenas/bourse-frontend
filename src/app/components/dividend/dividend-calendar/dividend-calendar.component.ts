@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { StockRepository } from "../../../repositories/stock-repository.service";
 import { take } from "rxjs";
 import { Dividend } from "../../../model/dividend";
@@ -18,13 +18,9 @@ import { DatePipe, NgForOf, NgIf, TitleCasePipe, UpperCasePipe } from "@angular/
   styleUrl: './dividend-calendar.component.css'
 })
 export class DividendCalendarComponent {
-  dividends: Dividend[];
+  @Input() dividends: Dividend[];
 
-  constructor(stockRepository: StockRepository) {
-    stockRepository
-      .fetchDividends()
-      .pipe(take(1))
-      .subscribe(dividends => this.dividends = dividends)
+  constructor() {
   }
 
 }

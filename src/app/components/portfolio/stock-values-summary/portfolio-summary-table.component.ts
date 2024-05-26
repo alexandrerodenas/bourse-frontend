@@ -3,11 +3,12 @@ import { CommonModule } from "@angular/common";
 import { Portfolio } from "../../../model/portfolio";
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
+import { NumericRowColorDirective } from "../../shared/numeric-row-color.directive";
 
 @Component({
   selector: 'app-portfolio-summary-table',
   standalone: true,
-  imports: [CommonModule, FaIconComponent],
+  imports: [CommonModule, FaIconComponent, NumericRowColorDirective],
   templateUrl: './portfolio-summary-table.component.html',
   styleUrl: './portfolio-summary-table.component.css'
 })

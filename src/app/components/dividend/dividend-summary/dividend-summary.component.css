@@ -1,0 +1,12 @@
+.table-container{
+  width: 30%;
+  margin: 20px auto auto;
+}
+
+.positive-row > td {
+  color: lightgreen;
+}
+
+.negative-row > td {
+  color: lightcoral;
+}

@@ -40,4 +40,6 @@ export class PortfolioViewComponent {
   onStockSelected(stockName: string): void {
     this.stockSelected.emit(stockName);
   }
+
+
 }

@@ -44,6 +44,6 @@ export class StockRepository {
   }
 
   fetchDividends(): Observable<Dividend[]> {
-    return of(dividendMock.map(mapJsonToDividend).sort((a, b) => a.date.getTime() - b.date.getTime()))
+    return of(dividendMock.map(mapJsonToDividend).sort((a, b) => a.detachment_date.getTime() - b.detachment_date.getTime()))
   }
 }

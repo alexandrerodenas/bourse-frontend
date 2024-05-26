@@ -1,9 +1,3 @@
-.container {
-  display: block;
-  height: 100vh;
-  padding: 20px;
-}
-
 .timeline-steps {
   display: flex;
   justify-content: center;
